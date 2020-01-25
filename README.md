@@ -2,7 +2,7 @@
 Pycket (pronounced picket) is the title of our project for CS 499. This will be a Python based application built using the Flask web framework combined with MySQL. While this application is primarily a ticketing/support system, it will also incorporate the functionalities of a web store. 
 
 ## Prerequisites
-###Install Git
+### Install Git
 The download for git can be found [here](https://git-scm.com/downloads)
 
 ### Install Python
