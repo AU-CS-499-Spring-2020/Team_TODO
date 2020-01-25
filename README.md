@@ -10,3 +10,6 @@ The download for Python can be found [here](https://www.python.org/downloads/) (
 
 ### Setup Git/Github
 For setting up git/github, follow the guide found [here](https://www.theodinproject.com/courses/web-development-101/lessons/setting-up-git). You can skip the install section and move directly to the section titled, "Configure Git and Github." Following this section will allow the user to push/pull from our Github using a signed SSH key allowing for more security and ease of use. 
+
+## Journals
+Each team member is to have their own journal. Team members are responsible for maintaining and updating their own journals with whatever project related tasks they worked on that day. Project related tasks include but are not limited to coding, reviewing code, design, team meetings, pair programming, etc. Again, each team member is responsible for maintaining and updating their own journals. 
