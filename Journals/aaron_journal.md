@@ -20,3 +20,6 @@ Finished URCA abstract and added to the drive. Met with Eric to get him setup.
 
 ## 1/31/2020
 Met with Trevor and Qingzhong, helped them setup their dev environments, met with Eric to finish setting up Eric his dev environment. 
+
+## 2/3/2020
+Met with Trevor and Aingzhong, helped them understand HTML/CSS, provided resources to learn HTML/CSS, worked on mock-up for Friday, etc.
