@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/static/css/main.css">
     </head>
     <body>
-        <div class="container-fluid">
+        <div id="jumbotron" class="container-fluid">
           <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="index">Pycket</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,8 +19,8 @@
                 <a class="nav-item nav-link" href="about_us">Meet the Team</a>
               </div>
               <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link login-btn" href="login">Login</a>
-                <a class="nav-item nav-link login-btn" href="signup">Get Started</a>
+                <a class="btn btn-outline-light" id="nav-login" href="#">Login</a>
+                <a class="btn btn-outline-primary" id="signup" href="#">Get Started</a>
               </div>
             </div>
         </nav>
@@ -31,9 +31,14 @@
             <p class="lead">Pycket is a ticketing and support system built using the powers of Python and Flask to help you do your job effectively.</p>
             <hr class="my-4">
             <p>Pycket comes packed with plenty of useful features.</p>
-            <a class="btn btn-primary btn-lg" href="#">Features</a>
+            <a class="btn btn-outline-primary btn-lg" href="#">Login</a>
+            <a class="btn btn-outline-danger btn-lg" href="#">Get Started</a>
           </div>
         </div>
+        </div>
+
+        <div >
+
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
