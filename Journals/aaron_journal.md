@@ -23,3 +23,27 @@ Met with Trevor and Qingzhong, helped them setup their dev environments, met wit
 
 ## 2/3/2020
 Met with Trevor and Aingzhong, helped them understand HTML/CSS, provided resources to learn HTML/CSS, worked on mock-up for Friday, etc.
+
+## 2/4/2020
+Met with Eric, discussed HTML and CSS, cut the meeting short as I wasn't feeling well.
+
+## 2/5/2020
+Met with Qingzhong and Eric to flesh out more of the home page, finished the mockup on Figma, created and finished our presentation, began our progress report, met with Eric after Algorithms to discuss our presentation and which parts he will be presenting. 
+
+## 2/7/2020
+Team TODO had our presentation today, met after class to dicuss how we think that went, what our goals are for the next progress report, finished the progress report.
+
+## 2/8/2020
+Started Flask tutorial to gain a better understanding of Flask, worked through the majority of the front-end components and started the back-end stuff.
+
+## 2/9/2020
+Finished the Flask tutorial (including unit testing) and have gained a better knowledge of how Flask is used to run the back-end, database, etc. We will be implementing ideas and concepts from the tutorial into our own project.
+
+## 2/10/2020
+Met with trevor and Qingzhong at 10, started templating out the base page, walked them through a simple Flask project, and showed them some of the things we will have to change with templating, our static pages, etc.
+
+## 2/11/2020
+Met with Eric at 12:30, finished creating the base template together, Eric is going to try creating the login page by himself, and we will work on that together on Thursday.
+
+## 2/12/2020
+Met with Trevor and Qingzhong at 9, got Trevor and Qingzhong started on the content for the home page, I started working on the back-end.
