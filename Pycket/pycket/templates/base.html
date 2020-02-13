@@ -3,7 +3,8 @@
     
 <head>
     <title>{% block title %}{% endblock %} - Pycket</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}"">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
@@ -63,7 +64,7 @@
       </div>
     </div>
 
-    <div id="content" class="container">
+    <div id="content" class="container-fluid">
         {% for message in get_flashed_messages() %}
             <div class="flash">{{ message }}</div>
         {% endfor %}
