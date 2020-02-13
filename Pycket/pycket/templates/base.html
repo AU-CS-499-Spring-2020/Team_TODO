@@ -27,7 +27,7 @@
                         <a class="btn btn-outline-light" id="nav-login" href="#">Logout</a>
                     {% else %}
                         <a href="" class="btn btn-outline-info" data-toggle="modal" data-target="#modalLoginForm">Login</a>
-                        <a class="btn btn-outline-info" id="signup" href="#">Get Started</a>
+                        <a class="btn btn-outline-info" id="signup" href="{{ url_for('auth.register') }}">Get Started</a>
                     {% endif %}
                 </div>
             </div>
