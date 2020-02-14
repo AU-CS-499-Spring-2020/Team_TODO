@@ -47,3 +47,6 @@ Met with Eric at 12:30, finished creating the base template together, Eric is go
 
 ## 2/12/2020
 Met with Trevor and Qingzhong at 9, got Trevor and Qingzhong started on the content for the home page, I started working on the back-end.
+
+## 2/13/2020
+Met with Eric, hooked up auth.py with login/setup html pages.
