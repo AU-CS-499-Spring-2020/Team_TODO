@@ -36,7 +36,6 @@ input[type=submit] {
   font-size: 12px;
 }
 
-/* Add a green text color and a checkmark when the requirements are right */
 .valid {
   color: green;
 }
@@ -44,10 +43,9 @@ input[type=submit] {
 .valid:before {
   position: relative;
   left: -35px;
-  content: "&#10004;";
+  content: "&#2714;";
 }
 
-/* Add a red text color and an "x" icon when the requirements are wrong */
 .invalid {
   color: red;
 }
