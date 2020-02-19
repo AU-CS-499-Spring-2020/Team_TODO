@@ -49,4 +49,16 @@ Met with Eric at 12:30, finished creating the base template together, Eric is go
 Met with Trevor and Qingzhong at 9, got Trevor and Qingzhong started on the content for the home page, I started working on the back-end.
 
 ## 2/13/2020
-Met with Eric, hooked up auth.py with login/setup html pages.
+Met with Eric, hooked up auth.py with login/setup html pages. Trevor and Qingzhong are supposed to be working on the landing page content.
+
+## 2/14/2020
+Worked on back-end for login page, started reorganization of bootstrap/css/js.
+
+## 2/16/2020
+Updated signup/login pages and added client-side password verification. Changed to a login page as opposed to a login modal. A login page works better and is easier to integrate/maintain
+
+## 2/17/2020
+Creating base template and extended templates for ticket section of software such as create/edit ticket.
+
+## 2/18/2020
+Worked on ticket section, started base template and began extension for other templates mentioned above. I am stuck on an error with 'ticket.index' not being recognized as a URL endpoint, but I am able to access it as a method. I am unsure why it is not being recognized as an endpoint.
