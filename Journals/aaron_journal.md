@@ -66,4 +66,4 @@ Worked on ticket section, started base template and began extension for other te
 ## 2/20/2020
 Worked on ticket section, attempting to route between landing page and our main ticketing page, unable to correctly route and receiving an error 'unable to builtd url endpoint for 'ticket.index'. This error makes it seem as though index is not defined within the ticket blueprint, but it is? Unsure of where this error is coming from.
 
-Edit: I'm stupid. 
+Edit: I'm stupid. The ticket blueprint was improperly named as 'app' and not 'ticket'. Routing now operating as expected to our ticketing side of our app. The goal is to try and finish the landing page and ticketing pages prior to our next class meeting, but we will see what happens over the next week.
