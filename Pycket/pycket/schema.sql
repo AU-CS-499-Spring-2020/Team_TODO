@@ -12,9 +12,9 @@ CREATE TABLE user (
 
 CREATE TABLE ticket (
     id integer PRIMARY KEY AUTOINCREMENT,
-    creater_id INTEGER NOT NULL,
+    creator_id INTEGER NOT NULL,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     title TEXT NOT NULL,
     body TEXT NOT NULL,
-    FOREIGN KEY (creater_id) REFERENCES user (id)
+    FOREIGN KEY (creator_id) REFERENCES user (id)
 );

@@ -62,3 +62,8 @@ Creating base template and extended templates for ticket section of software suc
 
 ## 2/18/2020
 Worked on ticket section, started base template and began extension for other templates mentioned above. I am stuck on an error with 'ticket.index' not being recognized as a URL endpoint, but I am able to access it as a method. I am unsure why it is not being recognized as an endpoint.
+
+## 2/20/2020
+Worked on ticket section, attempting to route between landing page and our main ticketing page, unable to correctly route and receiving an error 'unable to builtd url endpoint for 'ticket.index'. This error makes it seem as though index is not defined within the ticket blueprint, but it is? Unsure of where this error is coming from.
+
+Edit: I'm stupid. 

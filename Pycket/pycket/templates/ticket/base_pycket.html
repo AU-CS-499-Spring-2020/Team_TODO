@@ -2,7 +2,7 @@
 <html lang="en">
     
 <head>
-    <title>{% block title %}{% endblock %} - Product</title>
+    <title>{% block title %}{% endblock %} - Pycket</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -25,8 +25,8 @@
                 <div class="navbar-nav ml-auto">
                     {% if g.user %}
                         <span>{{ g.user['username'] }}</span>
-                        <a id="nav-product" class="btn btn-light extra-btn" href="#">Go To Landing Page</a>
-                        <a id="nav-logout" class="btn btn-light right-btn"  href="#">Logout</a>
+                        <a id="nav-product" class="btn btn-light extra-btn" href="{{ url_for('ticket.index') }}">Go To Pycket</a>
+                        <a id="nav-logout" class="btn btn-light right-btn"  href="{{ url_for('auth.logout') }}">Logout</a>
                     {% else %}
                         <a class="btn btn-info extra-btn" href="{{ url_for('auth.login') }}">Login</a>
                         <a id="signup" class="btn btn-info right-btn" href="{{ url_for('auth.register') }}">Get Started</a>

@@ -7,19 +7,20 @@ from werkzeug.exceptions import abort
 from pycket.auth import login_required
 from pycket.db import get_db
 
-bp = Blueprint('app', __name__)
+bp = Blueprint('ticket', __name__, template_folder='templates')
 
-@bp.route('/')
+@bp.route('/ticket/index')
+@login_required
 def index():
     db = get_db()
-    posts = db.execute(
-        'SELECT p.id, title, body, created, author_id, username'
-        ' FROM post p JOIN user u ON p.author_id = u.id'
+    tickets = db.execute(
+        'SELECT p.id, title, body, created, creator_id, username'
+        ' FROM ticket p JOIN user u ON p.creator_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
-    return render_template('pycket/pycket/index.html', posts=posts)
+    return render_template('ticket/product.html', posts=tickets)
 
-@bp.route('/create', methods=('GET', 'POST'))
+@bp.route('/ticket/create', methods=('GET', 'POST'))
 @login_required
 def create():
     if request.method == 'POST':
@@ -35,35 +36,35 @@ def create():
         else:
             db = get_db()
             db.execute(
-                'INSERT INTO post (title, body, author_id)'
+                'INSERT INTO ticket (title, body, author_id)'
                 ' Values (?, ?, ?)',
                 (title, body, g.user['id'])
             )
             db.commit()
             return redirect(url_for('ticket.index'))
     
-    return render_template('pycket/create.html')
+    return render_template('ticket/create.html')
 
-def get_post(id, check_author=True):
-    post = get_db().execute(
+def get_ticket(id, check_author=True):
+    ticket = get_db().execute(
         'SELECT p.id, title, body, created, author_id, username'
-        ' FROM post p JOIN user u ON p.author_id = u.id'
+        ' FROM ticket p JOIN user u ON p.author_id = u.id'
         ' WHERE p.id = ?',
         (id,)
     ).fetchone()
 
-    if post is None:
-        abort(404, "Post id {0} doesn't exist.".format(id))
+    if ticket is None:
+        abort(404, "Ticket id {0} doesn't exist.".format(id))
 
-    if check_author and post['author_id'] != g.user['id']:
+    if check_author and ticket['author_id'] != g.user['id']:
         abort(403)
 
-    return post
+    return ticket
 
-@bp.route('/<int:id>/update', methods=('GET', 'POST'))
+@bp.route('/ticket//<int:id>/update', methods=('GET', 'POST'))
 @login_required
 def update(id):
-    post = get_post(id)
+    ticket = get_ticket(id)
 
     if request.method == 'POST':
         title = request.form['title']
@@ -78,20 +79,20 @@ def update(id):
         else:
             db = get_db()
             db.execute(
-                'UPDATE post SET title = ?, body = ?'
+                'UPDATE ticket SET title = ?, body = ?'
                 ' WHERE id = ?',
                 (title, body, id)
             )
             db.commit()
             return redirect(url_for('ticket.index'))
 
-    return render_template('pycket/edit_ticket.html', post=post)
+    return render_template('ticket/edit_ticket.html', post=ticket)
 
-@bp.route('/<int:id>/delete', methods=('POST',))
+@bp.route('/ticket/<int:id>/delete', methods=('POST',))
 @login_required
 def delete(id):
-    get_post(id)
+    get_ticket(id)
     db = get_db()
-    db.execute('DELETE FROM post WHERE id = ?', (id,))
+    db.execute('DELETE FROM ticket WHERE id = ?', (id,))
     db.commit()
     return redirect(url_for('ticket.index'))
