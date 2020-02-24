@@ -22,7 +22,16 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
-    
+
+    from . import db
+    db.init_app(app)
+
+    from . import auth
+    app.register_blueprint(auth.bp)
+
+    from . import ticket
+    app.register_blueprint(ticket.bp)
+
     @app.route('/')
     def index():
         return render_template('index.html')

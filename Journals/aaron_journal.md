@@ -49,4 +49,21 @@ Met with Eric at 12:30, finished creating the base template together, Eric is go
 Met with Trevor and Qingzhong at 9, got Trevor and Qingzhong started on the content for the home page, I started working on the back-end.
 
 ## 2/13/2020
-Met with Eric, hooked up auth.py with login/setup html pages.
+Met with Eric, hooked up auth.py with login/setup html pages. Trevor and Qingzhong are supposed to be working on the landing page content.
+
+## 2/14/2020
+Worked on back-end for login page, started reorganization of bootstrap/css/js.
+
+## 2/16/2020
+Updated signup/login pages and added client-side password verification. Changed to a login page as opposed to a login modal. A login page works better and is easier to integrate/maintain
+
+## 2/17/2020
+Creating base template and extended templates for ticket section of software such as create/edit ticket.
+
+## 2/18/2020
+Worked on ticket section, started base template and began extension for other templates mentioned above. I am stuck on an error with 'ticket.index' not being recognized as a URL endpoint, but I am able to access it as a method. I am unsure why it is not being recognized as an endpoint.
+
+## 2/20/2020
+Worked on ticket section, attempting to route between landing page and our main ticketing page, unable to correctly route and receiving an error 'unable to builtd url endpoint for 'ticket.index'. This error makes it seem as though index is not defined within the ticket blueprint, but it is? Unsure of where this error is coming from.
+
+Edit: I'm stupid. The ticket blueprint was improperly named as 'app' and not 'ticket'. Routing now operating as expected to our ticketing side of our app. The goal is to try and finish the landing page and ticketing pages prior to our next class meeting, but we will see what happens over the next week.
