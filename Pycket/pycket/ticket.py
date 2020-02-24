@@ -43,7 +43,7 @@ def create():
             db.commit()
             return redirect(url_for('ticket.index'))
     
-    return render_template('ticket/create.html')
+    return render_template('ticket/create_ticket.html')
 
 def get_ticket(id, check_author=True):
     ticket = get_db().execute(
