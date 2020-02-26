@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block title%}Home{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
 
 {% block content %}
 <div class="jumbotron jumbotron-fluid">
@@ -15,19 +18,11 @@
 </div>
 
 <div id="feature">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
      
-      <div class="col">
-        <style>
-          div {
-            background-color: lightgrey;
-            width: 300px;
-            border: 15px solid green;
-            padding: 50px;
-            margin: 20px;
-          }
-          </style>
+      <div class="col features w-50 p-3">
+        
         <h2>Assign Computers to Users or Clients</h2>
         <p>Pycket provides a user friendly, intuitive approach for managing and assigning computer systems to users and clients across an
         organizations locations.
@@ -36,7 +31,7 @@
            for easy reorganization of company resources.
         </p>
       </div>
-      <div class="col">
+      <div class="col features w-50 p-3">
         <h2>Create and Manage Tickets</h2>
         <p>Users and clients have the power to create tickets for any problems they may come across while working with an organizations
            computer systems.
@@ -46,5 +41,7 @@
         </p>
   </div>
 
+</div>
+</div>
 </div>
 {% endblock %}
