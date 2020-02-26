@@ -18,3 +18,12 @@
 .jumbotron {
   background-color: #fff9fb;
 }
+
+.footer {
+  position: relative;
+  text-align: center;
+}
+
+footer > .float-right {
+  padding-right: 50px;
+}
