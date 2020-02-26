@@ -1,3 +1,6 @@
+body {
+    background-color: #fff9fb;
+}
 #nav-login{
     margin-right: 10px;
 }
@@ -7,6 +10,7 @@
     padding-bottom: 55px;
     padding-left: 0px;
     padding-right: 0px;
+    background-color: #fff9fb;
 }
 
 .extra-btn {
@@ -19,4 +23,9 @@
 
 .right-btn{
     margin-right: 375px;
+}
+
+.btn-info {
+    background-color: #6b818c;
+    border: #6b818c;
 }

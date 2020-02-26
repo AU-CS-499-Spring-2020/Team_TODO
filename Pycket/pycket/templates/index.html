@@ -1,20 +1,47 @@
 {% extends 'base.html' %}
 
 {% block title%}Home{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
 
 {% block content %}
-<div id="jumbotron" class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Welcome to Pycket</h1>
     <p class="lead">Pycket is a ticketing and support system built using the powers of Python and Flask to help you do your job effectively.</p>
     <hr class="my-4">
     <p>Pycket comes packed with plenty of useful features.</p>
-    <a class="btn btn-outline-secondary btn-lg" href="#" data-toggle="modal" data-target="#modalLoginForm">Login</a>
-    <a class="btn btn-outline-info btn-lg" href="#">Get Started</a>
+    <a class="btn btn-info btn-lg" href="{{ url_for('auth.login') }}">Login</a>
+    <a class="btn btn-info btn-lg" href="{{ url_for('auth.register') }}">Get Started</a>
   </div>
 </div>
 
 <div id="feature">
+  <div class="container-fluid">
+    <div class="row">
+     
+      <div class="col features w-50 p-3">
+        
+        <h2>Assign Computers to Users or Clients</h2>
+        <p>Pycket provides a user friendly, intuitive approach for managing and assigning computer systems to users and clients across an
+        organizations locations.
+        </p>
+        <p>Locations can be added, edited, and removed. There are tools for the mass migration of assigned computer systems that allow
+           for easy reorganization of company resources.
+        </p>
+      </div>
+      <div class="col features w-50 p-3">
+        <h2>Create and Manage Tickets</h2>
+        <p>Users and clients have the power to create tickets for any problems they may come across while working with an organizations
+           computer systems.
+        </p>
+        <p>Tickets are assignable, searchable, and manageable thanks to Pycket, allowing users to manage specific issues found across
+           an organization.
+        </p>
+  </div>
 
+</div>
+</div>
 </div>
 {% endblock %}

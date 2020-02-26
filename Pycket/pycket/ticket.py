@@ -88,9 +88,9 @@ def update(id):
 
     return render_template('ticket/edit_ticket.html', post=ticket)
 
-@bp.route('/ticket/<int:id>/delete', methods=('POST',))
+@bp.route('/ticket/<int:id>/archive', methods=('POST',))
 @login_required
-def delete(id):
+def archive(id):
     get_ticket(id)
     db = get_db()
     db.execute('DELETE FROM ticket WHERE id = ?', (id,))
