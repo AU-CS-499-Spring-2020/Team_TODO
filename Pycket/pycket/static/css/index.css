@@ -1,15 +1,20 @@
 .features {
-    background-color: lightgrey;
-    max-width: 750px;
-    border: 15px solid green;
-    padding-right: 50px;
-    margin: 20px;
-    text-align: center;
-    display: inline-block;
-    
-  }
+  max-width: 600px;
+  margin: auto;
+  background-color: #fff9fb;
+  height: 225px;
+  padding: 1000px;
+}
 
-  
-  
-  
-  
+#feature {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-left: 250px;
+  padding-right: 250px;
+  margin: 0px;
+  background-color: #08415c;
+}
+
+.jumbotron {
+  background-color: #fff9fb;
+}
