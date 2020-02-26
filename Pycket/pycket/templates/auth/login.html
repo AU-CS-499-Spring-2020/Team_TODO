@@ -2,6 +2,10 @@
 
 {% block title%}Login{% endblock %}
 
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
 {% block content %}
 <div class="container">
   <form id="login" method="POST">
@@ -13,8 +17,12 @@
     <div class="form-group">
       <label for="password">Password</label>
       <input id="password" class="form-control" name="password" type="password">
+      <small id="forgotPassword" class="form-text text-muted"><a id="forgotPassword" href="#">Forgot Password?</a></small>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <div>
+      <small id="newUser" class="form-text text-muted"> Don't have an account? <a id="signup" href="{{ url_for('auth.register') }}">Sign Up</a></small>
+    </div>
   </form>
 </div>
 {% endblock %}
