@@ -21,3 +21,8 @@
 .right-btn{
     margin-right: 375px;
 }
+
+.btn-info {
+    background-color: #6b818c;
+    border: #6b818c;
+}
