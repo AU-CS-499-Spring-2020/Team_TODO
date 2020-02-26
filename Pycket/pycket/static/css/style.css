@@ -29,3 +29,12 @@ body {
     background-color: #6b818c;
     border: #6b818c;
 }
+
+.footer {
+    position: relative;
+    text-align: center;
+}
+  
+footer > .float-right {
+    padding-right: 50px;
+}
