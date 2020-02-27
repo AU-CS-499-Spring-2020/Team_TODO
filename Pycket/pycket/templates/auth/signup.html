@@ -31,7 +31,11 @@
         <small id="length" class="invalid">Minimum <b>8 characters</b></small>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+      <label for="confirm_password">Confirm Password</label>
+      <input id="confirm_password" name="confirm_password" class="form-control" type="confirm_password" placeholder="Confirm Password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Account</button>
   </form>
 </div>
 {% endblock %}

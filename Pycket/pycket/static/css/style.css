@@ -1,5 +1,8 @@
 body {
     background-color: #fff9fb;
+    min-height: 100vh;
+    display: block;
+    position: relative;
 }
 #nav-login{
     margin-right: 10px;
