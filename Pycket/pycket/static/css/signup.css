@@ -7,11 +7,6 @@ input {
     margin-top: 6px;
     margin-bottom: 16px;
   }
-  
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-}
 
 .container {
   background-color: #f1f1f1;
