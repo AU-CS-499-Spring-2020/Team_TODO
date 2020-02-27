@@ -1,6 +1,16 @@
 .container {
     background: #f1f1f1;
     padding: 20px;
+    width: 600px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+label {
+    margin-bottom: 0px;
 }
 
 input {
@@ -11,4 +21,22 @@ input {
     box-sizing: border-box;
     margin-top: 6px;
     margin-bottom: 16px;
+}
+
+
+#heading {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+#password {
+    margin-bottom: 5px;
+}
+
+#email {
+    margin-bottom: 5px;
+}
+
+#sign_in {
+    margin-bottom: 20px;
 }

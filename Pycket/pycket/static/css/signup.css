@@ -11,6 +11,10 @@ input {
 .container {
   background-color: #f1f1f1;
   padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #message {
