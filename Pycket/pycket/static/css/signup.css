@@ -10,6 +10,7 @@ input {
 
 .container {
   background-color: #f1f1f1;
+  border-radius: 20px;
   padding: 20px;
   position: absolute;
   top: 50%;
@@ -33,6 +34,10 @@ input {
 #message small {
   padding: 10px 35px;
   font-size: 12px;
+}
+
+#email {
+  margin-bottom: 0px;
 }
 
 .valid {
