@@ -24,6 +24,9 @@ input {
     margin-bottom: 16px;
 }
 
+#signin {
+    margin-bottom: 20px;
+}
 
 #heading {
     text-align: center;
@@ -36,8 +39,4 @@ input {
 
 #email {
     margin-bottom: 5px;
-}
-
-#sign_in {
-    margin-bottom: 20px;
 }
