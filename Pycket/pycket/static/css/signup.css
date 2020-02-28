@@ -1,3 +1,16 @@
+#content {
+  background-color: #6b818c;
+}
+
+body {
+  background-color: #6b818c;
+}
+
+.footer {
+  background-color: #f1f1f1;
+  padding-top: 10px;
+}
+
 input {
     width: 100%;
     padding: 12px;
