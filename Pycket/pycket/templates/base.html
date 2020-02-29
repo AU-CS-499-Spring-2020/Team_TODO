@@ -4,6 +4,7 @@
 <head>
     <title>{% block title %}{% endblock %} - Pycket</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block stylesheets %} {% endblock %}
@@ -24,7 +25,6 @@
                 </div>
                 <div class="navbar-nav ml-auto">
                     {% if g.user %}
-                        <span>{{ g.user['username'] }}</span>
                         <a id="nav-product" class="btn btn-light extra-btn" href="{{ url_for('ticket.index') }}">Go To Pycket</a>
                         <a id="nav-logout" class="btn btn-light right-btn"  href="{{ url_for('auth.logout') }}">Logout</a>
                     {% else %}
