@@ -9,6 +9,9 @@
 {% block content%}
 <div class="container">
   <form method="post">
+    <div id="heading">
+      <h1>Create Ticket</h1>
+    </div>
     <div id="ticket-info" class="form-row">
       <div class="col-sm">
         <div class="form-group">
@@ -19,16 +22,19 @@
         </div>
       </div>
     </div>
-    
-    <div class="form-row">
 
-    </div>
+    <label for="issueCatagory">Issue Catagory:</label>
+    <select name="issueCatagory" id="issueCatagory">
+      <option value="issue1">sample1</option>
+      <option value="issue2">sampe2</option>
+    </select>
+
     <div class="form-group">
       <label for="requestor">Requestor</label>
       <input id="requestor"  type="text">
     </div>
     
-    <input type="submit" value="Save">
+      <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 
