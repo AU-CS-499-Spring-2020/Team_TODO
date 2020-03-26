@@ -1,0 +1,20 @@
+.features {
+  max-width: 600px;
+  margin: auto;
+  background-color: #fff9fb;
+  height: 400px;
+  padding: 1000px;
+}
+
+#feature {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-left: 250px;
+  padding-right: 250px;
+  margin: 0px;
+  background-color: #08415c;
+}
+
+.jumbotron {
+  background-color: #fff9fb;
+}

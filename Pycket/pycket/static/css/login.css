@@ -1,0 +1,42 @@
+.container {
+    background: #f1f1f1;
+    border-radius: 20px;
+    padding: 20px;
+    width: 600px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+label {
+    margin-bottom: 0px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+#signin {
+    margin-bottom: 20px;
+}
+
+#heading {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+#password {
+    margin-bottom: 5px;
+}
+
+#email {
+    margin-bottom: 5px;
+}

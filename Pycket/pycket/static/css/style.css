@@ -1,0 +1,41 @@
+body {
+    background-color: #fff9fb;
+    min-height: 100vh;
+    position: relative;
+}
+#nav-login{
+    margin-right: 10px;
+}
+
+#content{
+    padding-top: 55px;
+    padding-bottom: 55px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #fff9fb;
+}
+
+.extra-btn {
+    margin-right: 10px;
+}
+
+.navbar-brand{
+    margin-left: 400px;
+}
+
+.right-btn{
+    margin-right: 375px;
+}
+
+.btn-info {
+    background-color: #6b818c;
+    border: #6b818c;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %} - Pycket</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app/style.css') }}">
+    {% block stylesheets %} {% endblock %}
+</head>
+
+<body>
+    <div id="navbar" class="container">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="{{ url_for('ticket.index') }}">Pycket</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Add
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ url_for('ticket.create') }}">Add Ticket</a>
+                            <a class="dropdown-item" href="#">Add User</a>
+                          </div>
+                    </div>
+                    <form id="search" class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                      </form>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    {% if g.user %}
+                    <a class="nav-item nav-link active" href="{{ url_for('ticket.index') }}">Ticketing <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">Webstore</a>
+                    <a id="nav-logout" class="btn btn-light right-btn" href="{{ url_for('auth.logout') }}">Logout</a>
+                    {% else %}
+                    <a class="btn btn-info extra-btn" href="{{ url_for('auth.login') }}">Login</a>
+                    <a id="signup" class="btn btn-info right-btn" href="{{ url_for('auth.register') }}">Get Started</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ url_for('ticket.index') }}">
+                                <span data-feather="home"></span>
+                                Dashboard <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file"></span>
+                                Unassigned Tickets
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="shopping-cart"></span>
+                                Assigned Tickets
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="users"></span>
+                                Resolved Tickets
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="bar-chart-2"></span>
+                                Deleted Tickets
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="layers"></span>
+                                Reports
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h6
+                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Saved reports</span>
+                        <a class="d-flex align-items-center text-muted" href="#">
+                            <span data-feather="plus-circle"></span>
+                        </a>
+                    </h6>
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text"></span>
+                                Current month
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text"></span>
+                                Last quarter
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div id="content" class="container row">
+                {% for message in get_flashed_messages() %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+                {% block content %} {% endblock %}
+            </div>
+
+            <footer class="container">
+                <p class="float-right"><a href="#">Back to top</a></p>
+                <p>&copy; 2019-2020 Team TODO &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            </footer>
+
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+            <script src="{{ url_for('static', filename='bootstrap/bootstrap.min.js')}}" crossorigin="anonymous">
+            </script>
+            {% block scripts %} {% endblock %}
+</body>

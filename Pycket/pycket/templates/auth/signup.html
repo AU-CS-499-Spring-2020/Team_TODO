@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title%}Signup{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+  <form id="signup" method="POST">
+    <div class="form-group">
+      <h2 id="createAccount">Create Account</h2>
+      <label for="firstname">First name</label>
+      <input id="firstname" name="firstname" type="text" class="form-control" placeholder="First name" required>
+      <label for="firstname">Last name</label>
+      <input id="lastname" name="lastname" type="text" class="form-control" placeholder="Last name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> 
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" name="password" class="form-control" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" required>
+      <div id="message">
+        <h3>Password must contain the following:</h3>
+        <small id="letter" class="invalid">A <b>lowercase</b> letter</small>
+        <small id="capital" class="invalid">A <b>capital (uppercase)</b> letter</small>
+        <small id="number" class="invalid">A <b>number</b></small>
+        <small id="length" class="invalid">Minimum <b>8 characters</b></small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="confirm_password">Confirm Password</label>
+      <input id="confirm_password" name="confirm_password" class="form-control" type="confirm_password" placeholder="Confirm Password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Account</button>
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/signup_auth.js') }}"></script>
+{% endblock %}

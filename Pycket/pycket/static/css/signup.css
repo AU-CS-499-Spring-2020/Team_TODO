@@ -1,0 +1,80 @@
+#content {
+  background-color: #6b818c;
+}
+
+body {
+  background-color: #6b818c;
+}
+
+.footer {
+  background-color: #f1f1f1;
+  padding-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+  }
+
+.container {
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding: 20px;
+  width: 800px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#createAccount {
+  margin-bottom: 20px;
+}
+
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message h3 {
+  font-size: 18px;
+}
+
+#message small {
+  padding: 10px 35px;
+  font-size: 12px;
+}
+
+#email {
+  margin-bottom: 0px;
+}
+
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "&#2714;";
+}
+
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "&#10006;";
+}
