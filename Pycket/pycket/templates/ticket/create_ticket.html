@@ -15,10 +15,10 @@
     <div id="ticket-info" class="form-row">
       <div class="col-sm">
         <div class="form-group">
-          <label for="title">Title</label>
-          <input name="title" id="title" value="{{ request.form['title'] }}" required>
-          <label for="body">Body</label>
-          <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+          <label for="subject">Subject</label>
+          <input name="subject" id="subject" value="{{ request.form['subject'] }}" required>
+          <label for="description">Description</label>
+          <textarea name="description" id="description" placeholder="Enter the details of your issue here.">{{ request.form['description'] }}</textarea>
         </div>
       </div>
     </div>
