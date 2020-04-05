@@ -40,8 +40,8 @@
                     <a class="nav-item nav-link" href="#">Webstore</a>
                     <a id="nav-logout" class="btn btn-light right-btn" href="{{ url_for('auth.logout') }}">Logout</a>
                     {% else %}
-                    <a class="btn btn-info extra-btn" href="{{ url_for('auth.login') }}">Login</a>
-                    <a id="signup" class="btn btn-info right-btn" href="{{ url_for('auth.register') }}">Get Started</a>
+                    <a class="btn btn-info extra-btn" href="{{ url_for('login') }}">Login</a>
+                    <a id="signup" class="btn btn-info right-btn" href="{{ url_for('register') }}">Get Started</a>
                     {% endif %}
                 </div>
             </div>

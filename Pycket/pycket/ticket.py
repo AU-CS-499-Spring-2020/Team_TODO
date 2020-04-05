@@ -5,20 +5,16 @@ from flask import (
 from werkzeug.exceptions import abort
 
 from pycket.auth import login_required
-from pycket.db import get_db
 
 bp = Blueprint('ticket', __name__, template_folder='templates')
 
 @bp.route('/ticket/index')
 @login_required
 def index():
-    db = get_db()
-    tickets = db.execute(
-        'SELECT p.id, title, body, created, creator_id, username'
-        ' FROM ticket p JOIN user u ON p.creator_id = u.id'
-        ' ORDER BY created DESC'
-    ).fetchall()
-    return render_template('ticket/product.html', posts=tickets)
+    tickets = {
+
+    }
+    return render_template('product.html', posts=tickets)
 
 @bp.route('/ticket/create', methods=('GET', 'POST'))
 @login_required
@@ -43,7 +39,7 @@ def create():
             db.commit()
             return redirect(url_for('ticket.index'))
     
-    return render_template('ticket/create_ticket.html')
+    return render_template('create_ticket.html')
 
 def get_ticket(id, check_author=True):
     ticket = get_db().execute(
@@ -95,4 +91,4 @@ def archive(id):
     db = get_db()
     db.execute('DELETE FROM ticket WHERE id = ?', (id,))
     db.commit()
-    return redirect(url_for('ticket.index'))
+    return redirect(url_for('index'))
