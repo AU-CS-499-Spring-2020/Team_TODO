@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+=======
+#content {
+  background-color: #6b818c;
+}
+
+body {
+  background-color: #6b818c;
+}
+
+.footer {
+  background-color: #f1f1f1;
+  padding-top: 10px;
+}
+
+>>>>>>> 2bea7cf902ce5a7ac83970f095e2d356e033db95
 input {
     width: 100%;
     padding: 12px;
@@ -7,6 +23,7 @@ input {
     margin-top: 6px;
     margin-bottom: 16px;
   }
+<<<<<<< HEAD
   
 input[type=submit] {
   background-color: #4CAF50;
@@ -16,6 +33,23 @@ input[type=submit] {
 .container {
   background-color: #f1f1f1;
   padding: 20px;
+=======
+
+.container {
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding: 20px;
+  width: 800px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#createAccount {
+  margin-bottom: 20px;
+>>>>>>> 2bea7cf902ce5a7ac83970f095e2d356e033db95
 }
 
 #message {
@@ -36,6 +70,13 @@ input[type=submit] {
   font-size: 12px;
 }
 
+<<<<<<< HEAD
+=======
+#email {
+  margin-bottom: 0px;
+}
+
+>>>>>>> 2bea7cf902ce5a7ac83970f095e2d356e033db95
 .valid {
   color: green;
 }

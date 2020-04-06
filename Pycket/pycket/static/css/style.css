@@ -1,5 +1,10 @@
 body {
     background-color: #fff9fb;
+<<<<<<< HEAD
+=======
+    min-height: 100vh;
+    position: relative;
+>>>>>>> 2bea7cf902ce5a7ac83970f095e2d356e033db95
 }
 #nav-login{
     margin-right: 10px;
@@ -31,6 +36,12 @@ body {
 }
 
 .footer {
+<<<<<<< HEAD
+=======
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+>>>>>>> 2bea7cf902ce5a7ac83970f095e2d356e033db95
     position: relative;
     text-align: center;
 }

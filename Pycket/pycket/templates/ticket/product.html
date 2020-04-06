@@ -1,7 +1,19 @@
 {% extends 'ticket/base_pycket.html' %}
 
 {% block title %}Main Ticket Page{% endblock %}
+<<<<<<< HEAD
 
 {% block content %}
 <h1>Main Ticket Page</h1>
+=======
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="col-md-2">
+    <h1>Main Ticket Page</h1>
+    <a class="btn btn-info" href="{{ url_for('ticket.create') }}">Create Ticket</a>    
+</div>
+>>>>>>> 2bea7cf902ce5a7ac83970f095e2d356e033db95
 {% endblock %}

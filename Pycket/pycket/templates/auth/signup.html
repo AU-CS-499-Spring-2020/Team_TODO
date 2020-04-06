@@ -10,10 +10,18 @@
 <div class='container'>
   <form id="signup" method="POST">
     <div class="form-group">
+<<<<<<< HEAD
       <label for="firstname">First name</label>
       <input id="firstname" name="firstname" type="text" placeholder="First name" required>
       <label for="firstname">Last name</label>
       <input id="lastname" name="lastname" type="text" placeholder="Last name" required>
+=======
+      <h2 id="createAccount">Create Account</h2>
+      <label for="firstname">First name</label>
+      <input id="firstname" name="firstname" type="text" class="form-control" placeholder="First name" required>
+      <label for="firstname">Last name</label>
+      <input id="lastname" name="lastname" type="text" class="form-control" placeholder="Last name" required>
+>>>>>>> 2bea7cf902ce5a7ac83970f095e2d356e033db95
     </div>
     <div class="form-group">
       <label for="email">Email address</label>
@@ -31,7 +39,15 @@
         <small id="length" class="invalid">Minimum <b>8 characters</b></small>
       </div>
     </div>
+<<<<<<< HEAD
     <button type="submit" class="btn btn-primary">Submit</button>
+=======
+    <div class="form-group">
+      <label for="confirm_password">Confirm Password</label>
+      <input id="confirm_password" name="confirm_password" class="form-control" type="confirm_password" placeholder="Confirm Password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Account</button>
+>>>>>>> 2bea7cf902ce5a7ac83970f095e2d356e033db95
   </form>
 </div>
 {% endblock %}
