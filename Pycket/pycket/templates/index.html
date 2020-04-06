@@ -3,45 +3,76 @@
 {% block title%}Home{% endblock %}
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<link rel="stylesheet"
+   href="{{ url_for('static', filename='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') }}">
 {% endblock %}
 
 {% block content %}
 <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Welcome to Pycket</h1>
-    <p class="lead">Pycket is a ticketing and support system built using the powers of Python and Flask to help you do your job effectively.</p>
-    <hr class="my-4">
-    <p>Pycket comes packed with plenty of useful features.</p>
-    <a class="btn btn-info btn-lg" href="{{ url_for('auth.login') }}">Login</a>
-    <a class="btn btn-info btn-lg" href="{{ url_for('auth.register') }}">Get Started</a>
-  </div>
+   <div class="container">
+      <h1 class="display-4">Welcome to Pycket</h1>
+      <p class="lead">Pycket is a ticketing and support system built using the powers of Python and Flask to help you do
+         your job effectively.</p>
+      <hr class="my-4">
+      <p>Pycket comes packed with plenty of useful features.</p>
+      <a class="btn btn-info btn-lg" href="{{ url_for('auth.login') }}">Login</a>
+      <a class="btn btn-info btn-lg" href="{{ url_for('auth.register') }}">Get Started</a>
+   </div>
 </div>
 
 <div id="feature">
-  <div class="container-fluid">
-    <div class="row">
-     
-      <div class="col features w-50 p-3">
-        
-        <h2 class="display-4">Assign Computers to Users or Clients</h2>
-        <p class="lead">Pycket provides a user friendly, intuitive approach for managing and assigning computer systems to users and clients across an
-        organizations locations.
-        </p>
-        <p class="lead">Locations can be added, edited, and removed. There are tools for the mass migration of assigned computer systems that allow
-           for easy reorganization of company resources.
-        </p>
-      </div>
-      <div class="col features w-50 p-3">
-        <h2 class="display-4">Create and Manage Tickets</h2>
-        <p class="lead">Users and clients have the power to create tickets for any problems they may come across while working with an organizations
-           computer systems.
-        </p>
-        <p class="lead">Tickets are assignable, searchable, and manageable thanks to Pycket, allowing users to manage specific issues found across
-           an organization.
-        </p>
-  </div>
+   <div class="container-fluid">
+      <div class="row">
 
+         <div class="col features w-50 p-3">
+
+            <h2 class="display-4">Assign Computers to Users or Clients</h2>
+            <p class="lead">Pycket provides a user friendly, intuitive approach for managing and assigning computer
+               systems to users and clients across an
+               organizations locations.
+            </p>
+            <p class="lead">Locations can be added, edited, and removed. There are tools for the mass migration of
+               assigned computer systems that allow
+               for easy reorganization of company resources.
+            </p>
+         </div>
+         <div class="col features w-50 p-3">
+            <h2 class="display-4">Create and Manage Tickets</h2>
+            <p class="lead">Users and clients have the power to create tickets for any problems they may come across
+               while working with an organizations
+               computer systems.
+            </p>
+            <p class="lead">Tickets are assignable, searchable, and manageable thanks to Pycket, allowing users to
+               manage specific issues found across
+               an organization.
+            </p>
+         </div>
+
+      </div>
+   </div>
 </div>
+
+<h1 class="meetteam">Meet the Team</h1>
+<div id="wrap">
+   <div class="wrapper">
+      <div class="box a"><img src="static/Images/donatello.jpg" alt="Aaron" /><br>Aaron Bradfield <p
+            style="font-size: 80%">Strengths: Java, Python, Git/GitHub,
+            Project Management, and Clean Coding Practices
+         </p>
+      </div>
+      <div class="box b"><img src="static/Images/leo.jpg" alt="Trevor" /><br>Trevor Shymske <p style="font-size: 80%">
+            Strengths: Java, SQL, Database Management,
+            and Computer Hardware
+         </p>
+      </div>
+      <div class="box c"><img src="static/Images/mikey.jpg" alt="Eric" /><br>Eric Jordan <p style="font-size: 80%">
+            Strengths:Java, C++, and Matlab </p>
+      </div>
+      <div class="box d"><img src="static/Images/raphael.jpg" alt="Qingzhong" /><br>Qingzhong Xu <p
+            style="font-size: 80%">Strengths: Java
+         </p>
+      </div>
+   </div>
 </div>
-</div>
+
 {% endblock %}
