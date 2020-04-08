@@ -7,23 +7,16 @@ from werkzeug.urls import url_parse
 
 bp = Blueprint('auth', __name__, template_folder='templates')
 
+# @app.route('/')
+# def index():
+#     return render_template('index.html')
+
 @app.route('/')
 @app.route('/index')
-@login_required
 def index():
     user = {'username': "Aaron"}
-    posts = [
-        {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
 
-    return render_template('ticket/index.html', title='Home', posts=posts)
+    return render_template('index.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

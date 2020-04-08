@@ -13,11 +13,4 @@ login.login_view = 'auth.login'
 
 from pycket import auth, ticket, models
 app.register_blueprint(auth.bp)
-
-from pycket import ticket
 app.register_blueprint(ticket.bp)
-
-
-# @app.route('/')
-# def index():
-#     return render_template('index.html')

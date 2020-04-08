@@ -40,3 +40,7 @@ input {
 #email {
     margin-bottom: 5px;
 }
+
+#remember-me label {
+    display: inline;
+}

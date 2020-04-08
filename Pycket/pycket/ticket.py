@@ -11,9 +11,18 @@ bp = Blueprint('ticket', __name__, template_folder='templates')
 @bp.route('/ticket/index')
 @login_required
 def index():
-    tickets = {
+    tickets = [
+        {
+            "id": "1", 
+            "firstname": "Dan", 
+            "lastname": "Danson",
+            "phone_number": "123456789",
+            "location": "Someplace, Somestate",
+            "Subject": "This is ticket 1",
+            "description": "Please resolve this soon.. :(",
+        }
+    ]
 
-    }
     return render_template('product.html', posts=tickets)
 
 @bp.route('/ticket/create', methods=('GET', 'POST'))
@@ -41,6 +50,7 @@ def create():
     
     return render_template('create_ticket.html')
 
+@login_required
 def get_ticket(id, check_author=True):
     ticket = get_db().execute(
         'SELECT p.id, title, body, created, author_id, username'
