@@ -12,23 +12,50 @@
     <div id="ticket-info" class="form-row">
       <div class="col-sm">
         <div class="form-group">
-          <label for="title">Title</label>
-          <input name="title" id="title" value="{{ request.form['title'] }}" required>
-          <label for="body">Body</label>
-          <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+          <div id="heading">
+            <h1>Create Ticket</h1>
+          </div>
+          <div class="row">
+            <div class="column">
+              <div id="nameFirst">
+                <label for="nameFirst">First Name</label><br>
+                <input type="text" name="nameFirst" id="nameFirst" placeholder="John" required>
+              </div>
+              <div id="phone">
+                <label for="phone">Phone Number</label><br>
+                <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="XXX-XXX-XXXX" required>
+              </div>
+            </div>
+            <div class="column">
+              <div id="nameLast">
+                <label for="nameLast">Last Name</label><br>
+                <input type="text" name="nameLast" id="nameLast" placeholder="Doe" required>
+              </div>
+              <div id="email">
+                <label for="email">Email Address</label><br>
+                <input type="email" name="email" id="email" placeholder="example@example.com" required>
+              </div>
+            </div>
+          </div>
+          <div id="location">
+            <label for="location">Location</label><br>
+            <input type="text" name="location" id="location" placeholder="Location" required>
+          </div>
+          <div id="subject">
+            <label for="subject">Subject</label><br>
+            <input name="subject" id="subject" placeholder="Subject" required>
+          </div>
+          <div id="description">
+            <label for="description">Description</label><br>
+            <textarea name="description" id="description" placeholder="Enter the details of your issue here." required></textarea>
+          </div>
+          <br><br>
+          <div id="button">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </div>
       </div>
     </div>
-    
-    <div class="form-row">
-
-    </div>
-    <div class="form-group">
-      <label for="requestor">Requestor</label>
-      <input id="requestor"  type="text">
-    </div>
-    
-    <input type="submit" value="Save">
   </form>
 </div>
 
