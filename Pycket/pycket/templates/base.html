@@ -25,6 +25,11 @@
                 </div>
                 <div class="navbar-nav ml-auto">
                     {% if g.user %}
+<<<<<<< HEAD
+=======
+                        <span>{{ g.user['username'] }}</span>
+
+>>>>>>> b3bd66b9cb73f1ad62ec742c211209eea41305be
                         <a id="nav-product" class="btn btn-light extra-btn" href="{{ url_for('ticket.index') }}">Go To Pycket</a>
                         <a id="nav-logout" class="btn btn-light right-btn"  href="{{ url_for('auth.logout') }}">Logout</a>
                     {% else %}
