@@ -5,17 +5,11 @@ from flask_login import current_user, login_user, logout_user, login_required
 from pycket.models import User
 from werkzeug.urls import url_parse
 
-bp = Blueprint('auth', __name__, template_folder='templates')
-
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
+bp = Blueprint('auth', __name__, template_folder='templates/auth/')
 
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {'username': "Aaron"}
-
     return render_template('index.html')
 
 @app.route('/login', methods=['GET', 'POST'])

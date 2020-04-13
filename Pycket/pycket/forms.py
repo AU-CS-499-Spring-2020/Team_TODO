@@ -28,10 +28,11 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError('Please use a different email address.')
 
-class CreateTicket(FlaskForm):
+class CreateTicketForm(FlaskForm):
     firstname = StringField('First Name', validators=[DataRequired()])
     lastname = StringField('Last Name', validators=[DataRequired()])
     phone_number = StringField('Phone Number', validators=[DataRequired()])
+    email = StringField('Email Address', validators=[DataRequired(), Email()])
     location = StringField('Location')
     subject = StringField('Subject', validators=[DataRequired()])
     description = TextAreaField('Description', validators=[DataRequired()])

@@ -40,7 +40,7 @@
                     <a id="signup" class="btn btn-info right-btn" href="{{ url_for('register') }}">Get Started</a>
                     {% else %}
                     <a class="nav-item nav-link active" href="{{ url_for('ticket.index') }}">Ticketing <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#">Webstore</a>
+                    <a class="nav-item nav-link" href="{{ url_for('Webstore.index') }}">Webstore</a>
                     <a id="nav-logout" class="btn btn-light right-btn" href="{{ url_for('logout') }}">Logout</a>
                     {% endif %}
                 </div>

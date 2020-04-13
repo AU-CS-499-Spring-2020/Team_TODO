@@ -9,8 +9,9 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
-login.login_view = 'auth.login'
+login.login_view = 'login'
 
-from pycket import auth, ticket, models
+from pycket import auth, ticket, models, webstore
 app.register_blueprint(auth.bp)
 app.register_blueprint(ticket.bp)
+app.register_blueprint(webstore.bp)
