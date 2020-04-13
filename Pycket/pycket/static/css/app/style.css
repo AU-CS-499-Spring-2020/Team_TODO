@@ -35,23 +35,15 @@
     color: #ababab;
   }
   
-  .sidebar .nav-link .feather {
-    margin-right: 4px;
-    color: #ababab;
-  }
-  
   .sidebar .nav-link.active {
     color: #ababab;
   }
   
-  .sidebar .nav-link:hover .feather,
-  .sidebar .nav-link.active .feather {
-    color: inherit;
-  }
-  
   .sidebar-heading {
     font-size: 19px;
+    font-weight: 500;
     text-transform: uppercase;
+    color: white;
   }
 
   .footer {
