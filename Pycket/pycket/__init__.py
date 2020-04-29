@@ -1,39 +1,17 @@
-import os
-
 from flask import Flask, render_template
+from config import Config
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from flask_login import LoginManager
 
-def create_app(test_config=None):
-    # Create and configure the app
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'pycket.sqlite'),
-    )
+app = Flask(__name__)
+app.config.from_object(Config)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+login = LoginManager(app)
+login.login_view = 'login'
 
-    if test_config is None:
-        # Load the instance config, if it exists, when not testing
-        app.config.from_pyfile('config.py', silent=True)
-    else:
-        # Load the test config if passed in
-        app.config.from_mapping(test_config)
-    
-    # Ensure the instance folder exists
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
-
-    from . import db
-    db.init_app(app)
-
-    from . import auth
-    app.register_blueprint(auth.bp)
-
-    from . import ticket
-    app.register_blueprint(ticket.bp)
-
-    @app.route('/')
-    def index():
-        return render_template('index.html')
-
-    return app
+from pycket import auth, ticket, models, webstore
+app.register_blueprint(auth.bp)
+app.register_blueprint(ticket.bp)
+app.register_blueprint(webstore.bp)

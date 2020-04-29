@@ -35,13 +35,13 @@
                       </form>
                 </div>
                 <div class="navbar-nav ml-auto">
-                    {% if g.user %}
-                    <a class="nav-item nav-link active" href="{{ url_for('ticket.index') }}">Ticketing <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#">Webstore</a>
-                    <a id="nav-logout" class="btn btn-light right-btn" href="{{ url_for('auth.logout') }}">Logout</a>
+                    {% if current_user.is_anonymous %}
+                    <a class="btn btn-info extra-btn" href="{{ url_for('login') }}">Login</a>
+                    <a id="signup" class="btn btn-info right-btn" href="{{ url_for('register') }}">Get Started</a>
                     {% else %}
-                    <a class="btn btn-info extra-btn" href="{{ url_for('auth.login') }}">Login</a>
-                    <a id="signup" class="btn btn-info right-btn" href="{{ url_for('auth.register') }}">Get Started</a>
+                    <a class="nav-item nav-link active" href="{{ url_for('ticket.index') }}">Ticketing <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{{ url_for('Webstore.index') }}">Webstore</a>
+                    <a id="nav-logout" class="btn btn-light right-btn" href="{{ url_for('logout') }}">Logout</a>
                     {% endif %}
                 </div>
             </div>

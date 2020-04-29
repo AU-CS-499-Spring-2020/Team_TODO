@@ -1,54 +1,20 @@
-import functools
+from flask import render_template, flash, redirect, url_for, request, Blueprint
+from pycket import app, db
+from pycket.forms import LoginForm, RegistrationForm
+from flask_login import current_user, login_user, logout_user, login_required
+from pycket.models import User
+from werkzeug.urls import url_parse
 
-from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for
-)
+bp = Blueprint('auth', __name__, template_folder='templates/auth/')
 
-from werkzeug.security import check_password_hash, generate_password_hash
+@app.route('/')
+@app.route('/index')
+def index():
+    return render_template('index.html')
 
-from pycket.db import get_db
-
-bp = Blueprint('auth', __name__, url_prefix='/auth')
-
-@bp.route("/register", methods=("GET", "POST"))
-def register():
-    if request.method == "POST":
-        password = request.form["password"]
-        email = request.form["email"]
-        firstname = request.form["firstname"]
-        lastname = request.form["lastname"]
-        username = firstname.lower() + lastname.lower()
-        db = get_db()
-        error = None
-        
-        if not password:
-            error = "Password is required."
-        elif not email:
-            error = "An email is required."
-        elif not firstname:
-            error = "A first name is required."
-        elif not lastname:
-            error = "A last name is required."
-        elif (
-            db.execute("SELECT id FROM user WHERE username = ?", (username,)).fetchone()
-            is not None
-        ):
-            error = "User {0} is already registered.".format(username)
-
-        if error is None:
-            db.execute(
-                "INSERT INTO user (username, password, email, firstname, lastname) VALUES (?, ?, ?, ?, ?)",
-                (username, generate_password_hash(password), email, firstname, lastname),
-            )
-            db.commit()
-            return redirect(url_for("auth.login"))
-
-        flash(error)
-
-    return render_template("auth/signup.html")
-
-@bp.route('/login', methods=('GET', 'POST'))
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+<<<<<<< HEAD
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
@@ -83,15 +49,38 @@ def load_logged_in_user():
         ).fetchone()
 
 @bp.route('/logout')
+=======
+    if current_user.is_authenticated:
+        return redirect(url_for('ticket.index'))
+    form = LoginForm()
+    if form.validate_on_submit():
+       user = User.query.filter_by(email=form.email.data).first()
+       if user is None or not user.check_password(form.password.data):
+           flash('Invalid username or password')
+           return redirect(url_for('login'))
+       login_user(user, remember=form.remember_me.data)
+       next_page = request.args.get('next')
+       if not next_page or url_parse(next_page).netloc != '':
+           next_page = url_for('ticket.index')
+       return redirect(next_page)
+    return render_template('login.html', title='Sign In', form=form)
+
+@app.route('/logout')
+>>>>>>> 047946502c924afb77228860b23f4ac2bbc64d63
 def logout():
-    session.clear()
+    logout_user()
     return redirect(url_for('index'))
 
-def login_required(view):
-    @functools.wraps(view)
-    def wrapped_view(**kwargs):
-        if g.user is None:
-            return redirect(url_for('auth.login'))
-        
-        return view(**kwargs)
-    return wrapped_view
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Congratulations, you are now a registered user!')
+        return redirect(url_for('login'))
+    return render_template('register.html', title='Register', form=form)

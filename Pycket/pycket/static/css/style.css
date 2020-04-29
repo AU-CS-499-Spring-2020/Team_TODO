@@ -2,6 +2,8 @@ body {
     background-color: #fff9fb;
     min-height: 100vh;
     position: relative;
+    min-height: 100vh;
+    position: relative;
 }
 #nav-login{
     margin-right: 10px;
@@ -48,7 +50,14 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
+<<<<<<< HEAD
     height: auto;
+=======
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    position: relative;
+>>>>>>> 047946502c924afb77228860b23f4ac2bbc64d63
     text-align: center;
     background-color: #f1f1f1;
     padding-top: 15px;

@@ -3,6 +3,8 @@
 {% block title%}Home{% endblock %}
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<link rel="stylesheet"
+   href="{{ url_for('static', filename='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -13,8 +15,8 @@
       your job effectively.</p>
     <hr class="my-4">
     <p>Pycket comes packed with plenty of useful features.</p>
-    <a class="btn btn-info btn-lg" href="{{ url_for('auth.login') }}">Login</a>
-    <a class="btn btn-info btn-lg" href="{{ url_for('auth.register') }}">Get Started</a>
+    <a class="btn btn-info btn-lg" href="{{ url_for('login') }}">Login</a>
+    <a class="btn btn-info btn-lg" href="{{ url_for('register') }}">Get Started</a>
   </div>
 </div>
 
@@ -41,5 +43,27 @@
       </div>
     </div>
   </div>
+
+<h1 class="meetteam">Meet the Team</h1>
+<div id="wrap">
+   <div class="wrapper">
+      <div class="box a"><img src="static/Images/donatello.jpg" alt="Aaron" /><br>Aaron Bradfield <p
+            style="font-size: 80%">Strengths: Java, Python, Git/GitHub,
+            Project Management, and Clean Coding Practices
+         </p>
+      </div>
+      <div class="box b"><img src="static/Images/leo.jpg" alt="Trevor" /><br>Trevor Shymske <p style="font-size: 80%">
+            Strengths: Java, SQL, Database Management,
+            and Computer Hardware
+         </p>
+      </div>
+      <div class="box c"><img src="static/Images/mikey.jpg" alt="Eric" /><br>Eric Jordan <p style="font-size: 80%">
+            Strengths:Java, C++, and Matlab </p>
+      </div>
+      <div class="box d"><img src="static/Images/raphael.jpg" alt="Qingzhong" /><br>Qingzhong Xu <p
+            style="font-size: 80%">Strengths: Java
+         </p>
+      </div>
+   </div>
 </div>
 {% endblock %}
