@@ -14,42 +14,6 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-<<<<<<< HEAD
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        db = get_db()
-        error = None
-        user = db.execute(
-            'SELECT * FROM user WHERE email = ?', (email,)
-        ).fetchone()
-
-        if user is None:
-            error = 'Incorrect Email'
-        elif not check_password_hash(user['password'], password):
-            error = 'Incorrect Password'
-        
-        if error is None:
-            session.clear()
-            session['user_id'] = user['id']
-            return redirect(url_for('ticket.index'))
-        
-        flash(error)
-    return render_template('auth/login.html')
-
-@bp.before_app_request
-def load_logged_in_user():
-    user_id = session.get('user_id')
-
-    if user_id is None:
-        g.user = None
-    else:
-        g.user = get_db().execute(
-            'SELECT * FROM user WHERE id = ?', (user_id,)
-        ).fetchone()
-
-@bp.route('/logout')
-=======
     if current_user.is_authenticated:
         return redirect(url_for('ticket.index'))
     form = LoginForm()
@@ -66,7 +30,6 @@ def load_logged_in_user():
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
->>>>>>> 047946502c924afb77228860b23f4ac2bbc64d63
 def logout():
     logout_user()
     return redirect(url_for('index'))
