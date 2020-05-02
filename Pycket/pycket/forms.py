@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from pycket.models import User
 
@@ -36,3 +36,11 @@ class CreateTicketForm(FlaskForm):
     location = StringField('Location')
     subject = StringField('Subject', validators=[DataRequired()])
     description = TextAreaField('Description', validators=[DataRequired()])
+
+categories = ['Replacement PC', 'Peripherals', 'Misc.']
+
+class CreateProductForm(FlaskForm):
+    item_name = StringField('Item Name', validators=[DataRequired()])
+    price = StringField('Item Name', validators=[DataRequired()])
+    category = SelectField(label='Category', choices=categories, validators=[DataRequired()])
+    description = StringField('Description', validators=[DataRequired()])

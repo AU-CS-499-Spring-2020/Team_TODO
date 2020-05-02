@@ -27,7 +27,7 @@ def index():
         }
     ]
 
-    return render_template('ticket_home.html', posts=tickets)
+    return render_template('ticket_home.html', tickets=tickets)
 
 @bp.route('/ticket/create', methods=('GET', 'POST'))
 @login_required

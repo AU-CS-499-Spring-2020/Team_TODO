@@ -34,13 +34,15 @@ body {
     border: #6b818c;
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+body {
+    min-height: 100vh;
     position: relative;
+    margin: 0;
+    padding-bottom: 100px;
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 0;
     text-align: center;
-}
+  }

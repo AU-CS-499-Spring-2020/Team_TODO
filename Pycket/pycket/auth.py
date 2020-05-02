@@ -34,10 +34,11 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
+# Add firstname and lastname to User
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('ticket.index'))
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(email=form.email.data)
