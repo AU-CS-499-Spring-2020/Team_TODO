@@ -39,10 +39,31 @@ body {
     position: relative;
     margin: 0;
     padding-bottom: 100px;
-  }
+}
   
-  footer {
+footer {
     position: absolute;
     bottom: 0;
     text-align: center;
-  }
+}
+.flash {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    padding: 7px;
+    text-align: center;
+    color: red;
+    font-size: 24px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    background-color: #f1f1f1;
+    padding-top: 15px;
+}
