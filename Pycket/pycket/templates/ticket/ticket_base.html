@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div id="navbar" class="container">
+    <div id="navbar" class="container-fluid">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="{{ url_for('ticket.index') }}">Pycket</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -27,6 +27,7 @@
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ url_for('ticket.create') }}">Add Ticket</a>
                             <a class="dropdown-item" href="#">Add User</a>
+                            <a class="dropdown-item" href="{{ url_for('Webstore.create') }}">Add Product</a>
                           </div>
                     </div>
                     <form id="search" class="form-inline my-2 my-lg-0">
@@ -35,13 +36,13 @@
                       </form>
                 </div>
                 <div class="navbar-nav ml-auto">
-                    {% if g.user %}
-                    <a class="nav-item nav-link active" href="{{ url_for('ticket.index') }}">Ticketing <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#">Webstore</a>
-                    <a id="nav-logout" class="btn btn-light right-btn" href="{{ url_for('auth.logout') }}">Logout</a>
+                    {% if current_user.is_anonymous %}
+                    <a class="btn btn-info extra-btn" href="{{ url_for('login') }}">Login</a>
+                    <a id="signup" class="btn btn-info right-btn" href="{{ url_for('register') }}">Get Started</a>
                     {% else %}
-                    <a class="btn btn-info extra-btn" href="{{ url_for('auth.login') }}">Login</a>
-                    <a id="signup" class="btn btn-info right-btn" href="{{ url_for('auth.register') }}">Get Started</a>
+                    <a class="nav-item nav-link active" href="{{ url_for('ticket.index') }}">Ticketing <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{{ url_for('Webstore.index') }}">Webstore</a>
+                    <a id="nav-logout" class="btn btn-light right-btn" href="{{ url_for('logout') }}">Logout</a>
                     {% endif %}
                 </div>
             </div>
@@ -55,59 +56,39 @@
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" href="{{ url_for('ticket.index') }}">
-                                <span data-feather="home"></span>
                                 Dashboard <span class="sr-only">(current)</span>
                             </a>
                         </li>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tickets
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Assigned Tickets</a>
+                            <a class="dropdown-item" href="#">Unassigned Tickets</a>
+                            <a class="dropdown-item" href="#">Resolved Tickets</a>
+                            <a class="dropdown-item" href="#">Deleted Tickets</a>
+                          </div>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <span data-feather="file"></span>
-                                Unassigned Tickets
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="shopping-cart"></span>
-                                Assigned Tickets
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="users"></span>
-                                Resolved Tickets
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="bar-chart-2"></span>
-                                Deleted Tickets
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="layers"></span>
                                 Reports
                             </a>
                         </li>
                     </ul>
 
                     <h6
-                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1">
                         <span>Saved reports</span>
                         <a class="d-flex align-items-center text-muted" href="#">
-                            <span data-feather="plus-circle"></span>
                         </a>
                     </h6>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
                                 Current month
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
                                 Last quarter
                             </a>
                         </li>
@@ -122,9 +103,11 @@
                 {% block content %} {% endblock %}
             </div>
 
-            <footer class="container">
-                <p class="float-right"><a href="#">Back to top</a></p>
-                <p>&copy; 2019-2020 Team TODO &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <p class="float-right"><a href="#">Back to top</a></p>
+                    <p>&copy; 2019-2020 Team TODO &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+                </div>
             </footer>
 
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

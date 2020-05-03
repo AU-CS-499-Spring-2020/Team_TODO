@@ -24,12 +24,12 @@
                     <a class="nav-item nav-link" href="#team">Meet the Team</a>
                 </div>
                 <div class="navbar-nav ml-auto">
-                    {% if g.user %}
-                        <a id="nav-product" class="btn btn-light extra-btn" href="{{ url_for('ticket.index') }}">Go To Pycket</a>
-                        <a id="nav-logout" class="btn btn-light right-btn"  href="{{ url_for('auth.logout') }}">Logout</a>
+                    {% if current_user.is_anonymous %}
+                        <a class="btn btn-info extra-btn" href="{{ url_for('login') }}">Login</a>
+                        <a id="signup" class="btn btn-info right-btn" href="{{ url_for('register') }}">Get Started</a>
                     {% else %}
-                        <a class="btn btn-info extra-btn" href="{{ url_for('auth.login') }}">Login</a>
-                        <a id="signup" class="btn btn-info right-btn" href="{{ url_for('auth.register') }}">Get Started</a>
+                        <a id="nav-product" class="btn btn-light extra-btn" href="{{ url_for('ticket.index') }}">Go To Pycket</a>
+                        <a id="nav-logout" class="btn btn-light right-btn"  href="{{ url_for('logout') }}">Logout</a>
                     {% endif %}
                 </div>
             </div>
@@ -38,7 +38,7 @@
 
     <div id="content" class="container-fluid">
         {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
+            <div class="flash">&#10007; {{ message }}</div>
         {% endfor %}
         {% block content %} {% endblock %}
     </div>

@@ -1,0 +1,35 @@
+{% extends 'ticket_base.html' %}
+
+{% block title %}Main Ticket Page{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Ticket Number</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Date Created</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ticket in tickets %}
+    <tr>
+        <th scope="row">
+            <a href="{{ url_for('ticket.update', id=ticket.get_id()) }}">{{ ticket.get_id() }}</a>
+        </th>
+        <td>{{ ticket.get_firstname() }}</td>
+        <td>{{ ticket.get_lastname() }}</td>
+        <td>{{ ticket.get_subject() }}</td>
+        <td>{{ ticket.get_creation_timestamp() }}</td>
+        <td>{{ ticket.get_status() }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

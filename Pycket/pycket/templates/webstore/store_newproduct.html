@@ -1,0 +1,37 @@
+{% extends 'store_base.html' %}
+
+{% block content %}
+<h1>Is this going to show up?</h1>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div id="product-info" class="form-row">
+      <div class="col-sm">
+        <div class="form-group">
+          <div class="row">
+            <div class="column">
+              <div id="item_name">
+                {{ form.item_name.label }}<br>
+                {{ form.item_name(size=64) }}<br>
+              </div>
+              <div id="price">
+                {{ form.price.label }}<br>
+                {{ form.price(size=10) }}<br> 
+              </div>
+            </div>
+            <div class="column">
+              <div id="category">
+                {{ form.category.label }}<br>
+                {{ form.category }}<br>
+              </div>
+              <div id="description">
+                {{ form.description.label }}<br>
+                {{ form.description(size=64) }}<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>
+
+{% endblock %}

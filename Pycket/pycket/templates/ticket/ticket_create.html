@@ -1,0 +1,63 @@
+{% extends 'ticket_base.html'%}
+
+{% block title%}Create Ticket{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app/create_ticket.css') }}">
+{% endblock %}
+
+{% block content%}
+<div class="container">
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <div id="ticket-info" class="form-row">
+      <div class="col-sm">
+        <div class="form-group">
+          <div id="heading">
+            <h1>Create Ticket</h1>
+          </div>
+          <div class="row">
+            <div class="column">
+              <div id="nameFirst">
+                {{ form.firstname.label }}<br>
+                {{ form.firstname(size=64) }}<br>
+              </div>
+              <div id="phone">
+                {{ form.phone_number.label }}<br>
+                {{ form.phone_number(size=10) }}<br> 
+              </div>
+            </div>
+            <div class="column">
+              <div id="nameLast">
+                {{ form.lastname.label }}<br>
+                {{ form.lastname(size=64) }}<br>
+              </div>
+              <div id="email">
+                {{ form.email.label }}<br>
+                {{ form.email(size=64) }}<br>
+              </div>
+            </div>
+          </div>
+          <div id="location">
+            {{ form.location.label }}<br>
+            {{ form.location(size=64) }}<br>
+          </div>
+          <div id="subject">
+            {{ form.subject.label }}<br>
+            {{ form.subject(size=64) }}<br>
+          </div>
+          <div id="description">
+            {{ form.description.label }}<br>
+            {{ form.description(size=10000) }}<br>
+          </div>
+          <br><br>
+          <div id="button">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

@@ -18,3 +18,52 @@
 .jumbotron {
   background-color: #fff9fb;
 }
+
+body {
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  padding-bottom: 100px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
+
+.meetteam {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-right: 50px
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: 300px 300px;
+  background-color: #fff;
+  color: #444;
+}
+
+.box {
+  background-color: #08415c;
+  color: #fff9fb;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+
+.box img {
+  border: 3px solid black;
+  height: 150px;
+  width: 150px;
+}
+
+#wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

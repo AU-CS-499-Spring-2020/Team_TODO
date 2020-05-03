@@ -7,27 +7,27 @@
 {% endblock %}
 
 {% block content %}
-<div class="form-group" id="heading">
-  <h1>Pycket</h1>
-  <h3>Welcome Back!</h3>
-</div>
 <div class="container">
-  <form id="login" method="POST">
-    <div class="form-group">
-      <h2 id="signin">Sign In</h2>
-      <label for="email">Email address</label>
-      <input id="email" class="form-control" name="email" type="email" aria-describedby="emailHelp">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input id="password" class="form-control" name="password" type="password">
-      <small id="forgotPassword" class="form-text text-muted"><a id="forgotPassword" href="#">Forgot Password?</a></small>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign In</button>
-    <div>
-      <small id="newUser" class="form-text text-muted">Don't have an account? <a id="signup" href="{{ url_for('auth.register') }}">Sign Up</a></small>
-    </div>
-  </form>
+  <h1>Sign In</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.email.label }}<br>
+            {{ form.email(size=64) }}<br>
+            {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div id="remember-me">{{ form.remember_me() }} {{ form.remember_me.label }}</div>
+        <div>{{ form.submit() }}</p>
+    </form>
+    <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
 </div>
 {% endblock %}

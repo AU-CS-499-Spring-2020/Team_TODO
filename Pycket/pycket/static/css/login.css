@@ -1,3 +1,16 @@
+#content {
+    background-color: white;
+}
+  
+body {
+    background-color: white;
+}
+
+.footer {
+    background-color: #f1f1f1;
+    padding-top: 10px;
+}
+
 .container {
     background: #f1f1f1;
     border-radius: 20px;
@@ -39,4 +52,13 @@ input {
 
 #email {
     margin-bottom: 5px;
+}
+
+#remember-me label {
+    display: inline;
+}
+
+#submit {
+    background-color: #6b818c;
+    border-color: #6b818c;
 }
