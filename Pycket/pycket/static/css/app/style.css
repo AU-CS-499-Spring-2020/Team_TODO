@@ -12,10 +12,11 @@
     position: relative;
     top: 0;
     height: calc(100vh - 48px);
-    padding-top: .5rem;
+    padding-top: 1.5rem;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     background-color: #343a40;
+    opacity: 0.92;
   }
   
   @supports ((position: -webkit-sticky) or (position: sticky)) {

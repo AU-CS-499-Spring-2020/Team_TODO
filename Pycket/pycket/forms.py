@@ -37,6 +37,15 @@ class CreateTicketForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])
     description = TextAreaField('Description', validators=[DataRequired()])
 
+class EditTicketForm(FlaskForm):
+    firstname = StringField('First Name', validators=[DataRequired()])
+    lastname = StringField('Last Name', validators=[DataRequired()])
+    phone_number = StringField('Phone Number', validators=[DataRequired()])
+    email = StringField('Email Address', validators=[DataRequired(), Email()])
+    location = StringField('Location')
+    subject = StringField('Subject', validators=[DataRequired()])
+    description = TextAreaField('Description', validators=[DataRequired()])
+
 categories = ['Replacement PC', 'Peripherals', 'Misc.']
 
 class CreateProductForm(FlaskForm):

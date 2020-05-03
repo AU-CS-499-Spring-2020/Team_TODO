@@ -8,7 +8,7 @@ from werkzeug.exceptions import abort
 
 from pycket import app, db
 from pycket.models import Ticket
-from pycket.forms import CreateTicketForm
+from pycket.forms import CreateTicketForm, EditTicketForm
 
 bp = Blueprint('ticket', __name__, template_folder='templates/ticket/')
 
@@ -77,32 +77,19 @@ def create():
 
 #     return ticket
 
-@bp.route('/ticket//<int:id>/update', methods=('GET', 'POST'))
+@bp.route('/ticket/<int:id>/update', methods=('GET', 'POST'))
 @login_required
 def update(id):
-    ticket = Ticket.query.filter_by(id=id).first()
-
-    if request.method == 'POST':
-        title = request.form['title']
-        body = request.form['body']
-        error = None
-
-        if not title:
-            error = 'Title is required.'
-
-        if error is not None:
-            flash(error)
-        else:
-            db = get_db()
-            db.execute(
-                'UPDATE ticket SET title = ?, body = ?'
-                ' WHERE id = ?',
-                (title, body, id)
-            )
-            db.commit()
+    if current_user.is_authenticated:
+        ticket = Ticket.query.filter_by(id=id).first()
+        form = EditTicketForm(obj=ticket)
+        if form.validate_on_submit():
+            form.populate_obj(ticket)
+            db.session.commit()
             return redirect(url_for('ticket.index'))
 
-    return render_template('ticket/ticket_edit.html', ticket=ticket)
+        return render_template('ticket/ticket_edit.html', form=form, ticket=ticket)
+
 
 @bp.route('/ticket/<int:id>/archive', methods=('POST',))
 @login_required
