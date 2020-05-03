@@ -53,7 +53,7 @@ class Ticket(db.Model):
     subject = db.Column(db.String(140), index=True)
     description = db.Column(db.String(1000))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    status = db.Column(db.String(35), default=ticket_statuses.one)
+    status = db.Column(db.String(35), default=ticket_statuses.one.value)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def set_firstname(self, firstname):

@@ -24,6 +24,15 @@ def index():
             "location": "Someplace, Somestate",
             "Subject": "This is ticket 1",
             "description": "Please resolve this soon.. :(",
+        }, 
+        {
+            "id": "2", 
+            "firstname": "Jan", 
+            "lastname": "Janson",
+            "phone_number": "223456789",
+            "location": "Someplace, Somestate",
+            "Subject": "This is ticket 2",
+            "description": "Please resolve this soon.. :(",
         }
     ]
 
@@ -39,15 +48,16 @@ def create():
                 firstname=form.firstname.data,
                 lastname=form.lastname.data,
                 phone_number=form.phone_number.data,
-                email_address=form.email_address.data,
+                email=form.email.data,
                 location=form.location.data,
                 subject=form.subject.data,
-                description=form.description.data
+                description=form.description.data,
+                user_id=1
             )
 
             db.session.add(ticket)
             db.session.commit()
-            return redirect(url_for('ticket.update({})'.format(ticket.get_id())))
+            return redirect(url_for('ticket.index'))
         return render_template('ticket_create.html', title='Create Ticket', form=form)
 
 # @login_required
@@ -70,7 +80,7 @@ def create():
 @bp.route('/ticket//<int:id>/update', methods=('GET', 'POST'))
 @login_required
 def update(id):
-    ticket = Ticket.query.filter_by(id).first()
+    ticket = Ticket.query.filter_by(id=id).first()
 
     if request.method == 'POST':
         title = request.form['title']
@@ -92,7 +102,7 @@ def update(id):
             db.commit()
             return redirect(url_for('ticket.index'))
 
-    return render_template('ticket/ticket_edit.html', post=ticket)
+    return render_template('ticket/ticket_edit.html', ticket=ticket)
 
 @bp.route('/ticket/<int:id>/archive', methods=('POST',))
 @login_required
