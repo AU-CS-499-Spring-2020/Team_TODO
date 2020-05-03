@@ -87,7 +87,7 @@ class Ticket(db.Model):
         return self.firstname
 
     def get_lastname(self):
-        return self.last_name
+        return self.lastname
 
     def get_phone_number(self):
         return self.phone_number

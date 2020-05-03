@@ -15,26 +15,7 @@ bp = Blueprint('ticket', __name__, template_folder='templates/ticket/')
 @bp.route('/ticket/index')
 @login_required
 def index():
-    tickets = [
-        {
-            "id": "1", 
-            "firstname": "Dan", 
-            "lastname": "Danson",
-            "phone_number": "123456789",
-            "location": "Someplace, Somestate",
-            "Subject": "This is ticket 1",
-            "description": "Please resolve this soon.. :(",
-        }, 
-        {
-            "id": "2", 
-            "firstname": "Jan", 
-            "lastname": "Janson",
-            "phone_number": "223456789",
-            "location": "Someplace, Somestate",
-            "Subject": "This is ticket 2",
-            "description": "Please resolve this soon.. :(",
-        }
-    ]
+    tickets = Ticket.query.all()
 
     return render_template('ticket_home.html', tickets=tickets)
 
@@ -60,23 +41,6 @@ def create():
             return redirect(url_for('ticket.index'))
         return render_template('ticket_create.html', title='Create Ticket', form=form)
 
-# @login_required
-# def get_ticket(id, check_author=True):
-#     ticket = get_db().execute(
-#         'SELECT p.id, title, body, created, author_id, username'
-#         ' FROM ticket p JOIN user u ON p.author_id = u.id'
-#         ' WHERE p.id = ?',
-#         (id,)
-#     ).fetchone()
-
-#     if ticket is None:
-#         abort(404, "Ticket id {0} doesn't exist.".format(id))
-
-#     if check_author and ticket['author_id'] != g.user['id']:
-#         abort(403)
-
-#     return ticket
-
 @bp.route('/ticket/<int:id>/update', methods=('GET', 'POST'))
 @login_required
 def update(id):
@@ -89,13 +53,3 @@ def update(id):
             return redirect(url_for('ticket.index'))
 
         return render_template('ticket/ticket_edit.html', form=form, ticket=ticket)
-
-
-@bp.route('/ticket/<int:id>/archive', methods=('POST',))
-@login_required
-def archive(id):
-    get_ticket(id)
-    db = get_db()
-    db.execute('DELETE FROM ticket WHERE id = ?', (id,))
-    db.commit()
-    return redirect(url_for('index'))
