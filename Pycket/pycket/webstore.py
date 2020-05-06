@@ -8,9 +8,9 @@ from werkzeug.exceptions import abort
 
 from pycket import app, db
 from pycket.models import Product
-from pycket.forms import CreateProductForm
+from pycket.forms import CreateProductForm, EditProductForm
 
-bp = Blueprint('Webstore', __name__, template_folder='templates/webstore/')
+bp = Blueprint('webstore', __name__, template_folder='templates/webstore/')
 
 @bp.route('/store/index')
 @login_required
@@ -34,5 +34,18 @@ def create():
             db.session.add(product)
             db.session.commit()
 
-            return redirect(url_for('product.index'))
+            return redirect(url_for('Webstore.index'))
     return render_template('store_newproduct.html', form=form)
+
+@bp.route('/store/<int:id>/update', methods=('GET', 'POST'))
+@login_required
+def update(id):
+    if current_user.is_authenticated:
+        product = Product.query.filter_by(id=id).first()
+        form = EditProductForm(obj=product)
+        if form.validate_on_submit():
+            form.populate_obj(product)
+            db.session.commit()
+            return redirect(url_for('webstore.index'))
+
+        return render_template('webstore/store_update_product.html', form=form, product=product)

@@ -50,6 +50,12 @@ categories = ['Replacement PC', 'Peripherals', 'Misc.']
 
 class CreateProductForm(FlaskForm):
     item_name = StringField('Item Name', validators=[DataRequired()])
-    price = StringField('Item Name', validators=[DataRequired()])
+    price = StringField('Item Price', validators=[DataRequired()])
+    category = SelectField(label='Category', choices=categories, validators=[DataRequired()])
+    description = StringField('Description', validators=[DataRequired()])
+
+class EditProductForm(FlaskForm):
+    item_name = StringField('Item Name', validators=[DataRequired()])
+    price = StringField('Item Price', validators=[DataRequired()])
     category = SelectField(label='Category', choices=categories, validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
