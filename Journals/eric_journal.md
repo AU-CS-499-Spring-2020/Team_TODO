@@ -40,3 +40,9 @@ Worked on styling for error messages throughout all of Pycket. Cleaned up a few 
 
 ## 4/14/2020
 Met with the team to practice for URCA. Also discussed what we would begin working on after URCA. I decided I would work on the "Edit Ticket" page, which should be very similar to the "Create Ticket" page.
+
+## 5/2/2020
+Met with the team to work through some final issues that we were having and discuss what we should have done before we create the URCA presentation video.
+
+## 5/4/2020
+Met with Aaron to finish creatinng the main ticket page and table containing recent tickets. Got to a functionally complete state. Also met with the rest of the team to finish the URCA presentation video.
